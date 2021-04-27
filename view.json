@@ -1,0 +1,69 @@
+{
+	"type": "modal",
+	"callback_id": "view_1",
+	"title": {
+		"type": "plain_text",
+		"text": "My App"
+	},
+	"submit": {
+		"type": "plain_text",
+		"text": "Submit"
+	},
+	"blocks": [
+		{
+			"type": "divider"
+		},
+		{
+			"type": "input",
+			"block_id": "filename",
+			"label": {
+				"type": "plain_text",
+				"text": "Filename:"
+			},
+			"element": {
+				"type": "plain_text_input",
+				"action_id": "plain_input",
+				"placeholder": {
+					"type": "plain_text",
+					"text": "filename..."
+				}
+			}
+		},
+		{
+			"type": "input",
+			"block_id": "code",
+			"label": {
+				"type": "plain_text",
+				"text": "Python Code:"
+			},
+			"element": {
+				"type": "plain_text_input",
+				"action_id": "plain_input",
+				"placeholder": {
+					"type": "plain_text",
+					"text": "type some Python code here..."
+				}
+			}
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "Run your program:"
+			},
+			"accessory": {
+				"type": "button",
+				"text": {
+					"type": "plain_text",
+					"text": "Run",
+					"emoji": true
+				},
+				"value": "click_me_123",
+				"action_id": "button-action"
+			}
+		}
+	]
+}
