@@ -37,6 +37,7 @@ def make_image(ack, say, command, body, client):
 			text=message.format(user = ("<@"+body['user_id']+">"))
 		)
 	text = body['text'].split()
+	prefix = "p"
 	if len(text) == 1:
 		url = text[0]
 		width = None
@@ -47,6 +48,14 @@ def make_image(ack, say, command, body, client):
 		except:
 			respond('Sorry, that wasn\'t a valid width!')
 			return
+	elif len(text) == 3:
+		try:
+			url, width, prefix = text
+			width = int(width)
+		except:
+			respond('Sorry, that wasn\'t a valid width!')
+			return
+	print(url)
 	try:
 		file = urllib.request.urlopen(url)
 	except:
@@ -66,12 +75,12 @@ def make_image(ack, say, command, body, client):
 		if c % width == 0 and c != 0:
 			out += "\n"
 		name = css(p)
-		out += f":p_{name}:"
+		out += f":{prefix}_{name}:"
 		newpixels.append(hex_to_rgb(CSS3_NAMES_TO_HEX[name]))
 	new = Image.new('RGB', i.size)
 	new.putdata(newpixels)
 	new.save('slack.png')
-	out = out.replace(':black:', ':blank:')
+	# out = out.replace(f':{prefix}_black:', ':blank:')
 	with open('out', 'w+') as f:
 		f.write(out)
 	say(out)
