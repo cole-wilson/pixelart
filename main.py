@@ -13,6 +13,7 @@ except:
 	os.system('pip3 install slack_bolt')
 	from slack_bolt import App
 
+# from https://medium.com/codex/rgb-to-color-names-in-python-the-robust-way-ec4a9d97a01f
 def css(rgb_tuple):
 	css3_db = CSS3_HEX_TO_NAMES
 	names = []
